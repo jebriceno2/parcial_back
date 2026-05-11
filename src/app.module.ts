@@ -34,7 +34,7 @@ import { AuthModule } from './auth/auth.module';
         
         // synchronize: si true, TypeORM crea/modifica tablas al arrancar según las entidades.
         // CÓMODO en dev; PELIGROSO en producción. Lo apagaremos al generar migraciones.
-        synchronize: true,
+        synchronize: false,
       }),
     }),
 
