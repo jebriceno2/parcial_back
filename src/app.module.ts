@@ -3,6 +3,9 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { UsersModule } from './users/users.module';
+import { RolesModule } from './roles/roles.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -28,12 +31,18 @@ import { AppService } from './app.service';
         // autoLoadEntities: detecta automáticamente las entidades registradas con
         // TypeOrmModule.forFeature([...]) en cada módulo. Más limpio que listarlas a mano.
         autoLoadEntities: true,
-
+        
         // synchronize: si true, TypeORM crea/modifica tablas al arrancar según las entidades.
         // CÓMODO en dev; PELIGROSO en producción. Lo apagaremos al generar migraciones.
         synchronize: true,
       }),
     }),
+
+    UsersModule,
+
+    RolesModule,
+
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
