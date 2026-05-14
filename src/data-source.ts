@@ -3,6 +3,7 @@ import { DataSource } from 'typeorm';
 import { config } from 'dotenv';
 import { User } from './users/entities/user.entity';
 import { Role } from './roles/entitites/roles.entity';
+import { Appointmente } from './appointmente/entities/appointmente.entity';
 
 config(); // carga el .env
 
@@ -15,7 +16,7 @@ export const AppDataSource = new DataSource({
   database: process.env.DB_NAME,
 
   // Lista de entidades para que TypeORM sepa cómo lucen las tablas
-  entities: [User, Role],
+  entities: [User, Role, Appointmente],
 
   // Carpeta donde se generarán las migraciones
   migrations: ['src/migrations/*.ts'],
