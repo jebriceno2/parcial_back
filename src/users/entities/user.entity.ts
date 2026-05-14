@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, CreateDateColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, CreateDateColumn, OneToMany } from "typeorm";
 import {Role} from "../../roles/entitites/roles.entity";
 
 @Entity('users')
@@ -27,4 +27,5 @@ export class User {
     @ManyToMany(() => Role, (role) => role.users, { eager: true })
     @JoinTable({name: 'user_roles'})
     roles: Role[];
+
 }
